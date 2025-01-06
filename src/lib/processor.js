@@ -30,7 +30,7 @@ import { fetchOrganicKeywords } from './api'
       }
     }
 
-    const updateHubspotContacts = async (accessToken, contacts) => {
+    export const updateHubspotContacts = async (accessToken, contacts) => {
       try {
         const batchSize = 10
         const batches = []

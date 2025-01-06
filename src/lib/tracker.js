@@ -1,6 +1,6 @@
 import { supabase } from './supabase'
     import { fetchHubspotContacts, fetchOrganicKeywords } from './api'
-    import { updateHubspotContacts } from './processor'
+    import { updateHubspotContacts, processKeywordsForContacts } from './processor'
 
     let intervalId = null
     let lastProcessedTimestamp = null
@@ -65,15 +65,4 @@ import { supabase } from './supabase'
         console.error('Error processing new contacts:', error)
         throw error
       }
-    }
-
-    const processKeywordsForContacts = async (contacts, propertyUrl, tokens) => {
-      const keywords = await fetchOrganicKeywords(tokens.google_access_token, propertyUrl)
-      
-      // Create keyword map and process contacts
-      // ... (same processing logic as before)
-
-      // Update HubSpot contacts
-      await updateHubspotContacts(tokens.hubspot_access_token, updatedContacts)
-      return updatedContacts
     }
