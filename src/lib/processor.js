@@ -30,4 +30,36 @@ import { fetchOrganicKeywords } from './api'
       }
     }
 
-    // Rest of the processor.js remains the same
+    const updateHubspotContacts = async (accessToken, contacts) => {
+      try {
+        const batchSize = 10
+        const batches = []
+
+        // Split into batches of 10
+        for (let i = 0; i < contacts.length; i += batchSize) {
+          batches.push(contacts.slice(i, i + batchSize))
+        }
+
+        // Process each batch
+        for (const batch of batches) {
+          await axios.post(
+            'https://api.hubapi.com/crm/v3/objects/contacts/batch/update',
+            {
+              inputs: batch.map(contact => ({
+                id: contact.id,
+                properties: contact.properties
+              }))
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+              }
+            }
+          )
+        }
+      } catch (error) {
+        console.error('Error updating HubSpot contacts:', error)
+        throw error
+      }
+    }
