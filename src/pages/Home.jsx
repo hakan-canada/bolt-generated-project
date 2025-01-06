@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-    import { getHubspotAuthUrl, getGoogleAuthUrl } from '../lib/hubspot'
+    import { getHubspotAuthUrl } from '../lib/hubspot'
+    import { getGoogleAuthUrl } from '../lib/google'
 
     export default function Home() {
       useEffect(() => {
