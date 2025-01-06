@@ -1,4 +1,5 @@
-import { fetchOrganicKeywords } from './api'
+import axios from 'axios'
+    import { fetchOrganicKeywords } from './api'
     import { supabase } from './supabase'
     import { matchContactsWithKeywords } from './urlUtils'
 
