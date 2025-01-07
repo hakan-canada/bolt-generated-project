@@ -13,9 +13,9 @@ export default function Home() {
 
   useEffect(() => {
     console.log('Environment Variables:', {
-      VITE_HUBSPOT_CLIENT_ID: import.meta.env.VITE_HUBSPOT_CLIENT_ID,
-      VITE_GOOGLE_CLIENT_ID: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-      VITE_SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL,
+      VITE_HUBSPOT_CLIENT_ID: "792eef24-c714-4ea5-b70a-7376795c0460",
+      VITE_GOOGLE_CLIENT_ID: "473799643228-8i7tuln17bqf1u4544cngmmog863puto.apps.googleusercontent.com",
+      VITE_SUPABASE_URL: "https://cbtaogdbrqxnsigtmrec.supabase.co",
     })
     setEnvLoaded(true)
   }, [])
