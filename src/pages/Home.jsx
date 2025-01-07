@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getHubspotAuthUrl, getGoogleAuthUrl } from '../lib/google'
+import { getGoogleAuthUrl } from '../lib/google'
+import { getHubspotAuthUrl } from '../lib/hubspot'
 import { supabase } from '../lib/supabase'
 import { showError } from '../lib/notifications'
 
