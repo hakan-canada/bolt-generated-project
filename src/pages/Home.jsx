@@ -11,7 +11,6 @@ export default function Home() {
   const [authError, setAuthError] = useState(null)
   const [envLoaded, setEnvLoaded] = useState(false)
 
-  // Debug: Log environment variables
   useEffect(() => {
     console.log('Environment Variables:', {
       VITE_HUBSPOT_CLIENT_ID: import.meta.env.VITE_HUBSPOT_CLIENT_ID,
@@ -28,6 +27,9 @@ export default function Home() {
           .from('tokens')
           .select('*')
           .single()
+          .headers({
+            'Accept': 'application/json'
+          })
 
         if (error) throw error
 
