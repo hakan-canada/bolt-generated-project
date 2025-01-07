@@ -27,9 +27,6 @@ export default function Home() {
           .from('tokens')
           .select('*')
           .single()
-          .headers({
-            'Accept': 'application/json'
-          })
 
         if (error) throw error
 
